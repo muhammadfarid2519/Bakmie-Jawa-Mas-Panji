@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pesan - Bakmie Jawa Mas Panji</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .item-card {
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 15px;
+      background-color: #fff;
+    }
+
+    .section-box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+    }
+
+    .btn-brown {
+      background-color: #8b5e3c;
+      color: white;
+      border: none;
+    }
+
+    .btn-brown:hover {
+      background-color: #6f4a2f;
+      color: white;
+    }
+
+    .item-title {
+      font-weight: 600;
+      color: #5c3d2e;
+      margin-bottom: 10px;
+    }
+
+    .form-check-label {
+      margin-left: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #5c3d2e;">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Bakmie Jowo Mas Panji</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">Tentang</a></li>
+          <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Galeri</a></li>
+          <li class="nav-item"><a class="nav-link active" href="order.html">Pesan</a></li>
+          <li class="nav-item"><a class="nav-link" href="data-pesanan.html">Data Pesanan</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container py-5">
+    <h1 class="text-center mb-4" style="color:#5c3d2e;">Form Pemesanan</h1>
+
+    <div class="row justify-content-center">
+      <div class="col-md-9">
+        <div class="section-box">
+          <form id="formPesanan" onsubmit="tambahPesanan(event)">
+            
+            <div class="mb-3">
+              <label class="form-label">Nama Pemesan</label>
+              <input type="text" class="form-control" id="nama" placeholder="Masukkan Nama Anda" required>
+            </div>
+
+            <div class="section-box">
+              <h4 style="color:#5c3d2e;">Menu Makanan</h4>
+
+              <div class="item-card">
+                <div class="form-check mb-2">
+                  <input class="form-check-input menu-check" type="checkbox" value="Bakmie Goreng" id="makanan1" data-kategori="Makanan" data-harga="18000">
+                  <label class="form-check-label item-title" for="makanan1">Bakmie Goreng - Rp 18.000</label>
+                </div>
+                <div class="menu-detail d-none">
+                  <label class="form-label">Jumlah</label>
+                  <input type="number" class="form-control jumlah-item mb-2" min="1" value="1">
+                  <label class="form-label">Catatan Tambahan</label>
+                  <textarea class="form-control catatan-item" rows="2" placeholder="Contoh: pedas sedang, tanpa sawi"></textarea>
+                </div>
+              </div>
+
+              <div class="item-card">
+                <div class="form-check mb-2">
+                  <input class="form-check-input menu-check" type="checkbox" value="Bakmie Godhog" id="makanan2" data-kategori="Makanan" data-harga="18000">
+                  <label class="form-check-label item-title" for="makanan2">Bakmie Godhog - Rp 18.000</label>
+                </div>
+                <div class="menu-detail d-none">
+                  <label class="form-label">Jumlah</label>
+                  <input type="number" class="form-control jumlah-item mb-2" min="1" value="1">
+                  <label class="form-label">Catatan Tambahan</label>
+                  <textarea class="form-control catatan-item" rows="2" placeholder="Contoh: kuah banyak"></textarea>
+                </div>
+              </div>
+
+              <div class="item-card">
+                <div class="form-check mb-2">
+                  <input class="form-check-input menu-check" type="checkbox" value="Nasi Goreng" id="makanan3" data-kategori="Makanan" data-harga="18000">
+                  <label class="form-check-label item-title" for="makanan3">Nasi Goreng - Rp 18.000</label>
+                </div>
+                <div class="menu-detail d-none">
+                  <label class="form-label">Jumlah</label>
+                  <input type="number" class="form-control jumlah-item mb-2" min="1" value="1">
+                  <label class="form-label">Catatan Tambahan</label>
+                  <textarea class="form-control catatan-item" rows="2" placeholder="Contoh: telur ceplok"></textarea>
+                </div>
+              </div>
+
+              <div class="item-card">
+                <div class="form-check mb-2">
+                  <input class="form-check-input menu-check" type="checkbox" value="Bihun Goreng" id="makanan4" data-kategori="Makanan" data-harga="18000">
+                  <label class="form-check-label item-title" for="makanan4">Bihun Goreng - Rp 18.000</label>
+                </div>
+                <div class="menu-detail d-none">
+                  <label class="form-label">Jumlah</label>
+                  <input type="number" class="form-control jumlah-item mb-2" min="1" value="1">
+                  <label class="form-label">Catatan Tambahan</label>
+                  <textarea class="form-control catatan-item" rows="2" placeholder="Contoh: telur ceplok"></textarea>
+                </div>
+              </div>
+
+              <div class="item-card">
+                <div class="form-check mb-2">
+                  <input class="form-check-input menu-check" type="checkbox" value="Bihun Godhog" id="makanan5" data-kategori="Makanan" data-harga="18000">
+                  <label class="form-check-label item-title" for="makanan5">Bihun Godhog - Rp 18.000</label>
+                </div>
+                <div class="menu-detail d-none">
+                  <label class="form-label">Jumlah</label>
+                  <input type="number" class="form-control jumlah-item mb-2" min="1" value="1">
+                  <label class="form-label">Catatan Tambahan</label>
+                  <textarea class="form-control catatan-item" rows="2" placeholder="Contoh: telur ceplok"></textarea>
+                </div>
+              </div>
+
+              <div class="item-card">
+                <div class="form-check mb-2">
+                  <input class="form-check-input menu-check" type="checkbox" value="Magelangan" id="makanan6" data-kategori="Makanan" data-harga="18000">
+                  <label class="form-check-label item-title" for="makanan6">Magelangan - Rp 18.000</label>
+                </div>
+                <div class="menu-detail d-none">
+                  <label class="form-label">Jumlah</label>
+                  <input type="number" class="form-control jumlah-item mb-2" min="1" value="1">
+                  <label class="form-label">Catatan Tambahan</label>
+                  <textarea class="form-control catatan-item" rows="2" placeholder="Contoh: telur ceplok"></textarea>
+                </div>
+              </div>
+
+              <div class="item-card">
+                <div class="form-check mb-2">
+                  <input class="form-check-input menu-check" type="checkbox" value="Magelangan Godhog" id="makanan7" data-kategori="Makanan" data-harga="18000">
+                  <label class="form-check-label item-title" for="makanan7">Magelangan Godhog - Rp 18.000</label>
+                </div>
+                <div class="menu-detail d-none">
+                  <label class="form-label">Jumlah</label>
+                  <input type="number" class="form-control jumlah-item mb-2" min="1" value="1">
+                  <label class="form-label">Catatan Tambahan</label>
+                  <textarea class="form-control catatan-item" rows="2" placeholder="Contoh: telur ceplok"></textarea>
+                </div>
+              </div>
+
+              <div class="item-card">
+                <div class="form-check mb-2">
+                  <input class="form-check-input menu-check" type="checkbox" value="Rica Rica Ayam" id="makanan8" data-kategori="Makanan" data-harga="22000">
+                  <label class="form-check-label item-title" for="makanan8">Rica Rica Ayam - Rp 22.000</label>
+                </div>
+                <div class="menu-detail d-none">
+                  <label class="form-label">Jumlah</label>
+                  <input type="number" class="form-control jumlah-item mb-2" min="1" value="1">
+                  <label class="form-label">Catatan Tambahan</label>
+                  <textarea class="form-control catatan-item" rows="2" placeholder="Contoh: telur ceplok"></textarea>
+                </div>
+              </div>
+
+              <div class="item-card">
+                <div class="form-check mb-2">
+                  <input class="form-check-input menu-check" type="checkbox" value="Rica Rica Balungan" id="makanan9" data-kategori="Makanan" data-harga="20000">
+                  <label class="form-check-label item-title" for="makanan9">Rica Rica Balungan - Rp 20.000</label>
+                </div>
+                <div class="menu-detail d-none">
+                  <label class="form-label">Jumlah</label>
+                  <input type="number" class="form-control jumlah-item mb-2" min="1" value="1">
+                  <label class="form-label">Catatan Tambahan</label>
+                  <textarea class="form-control catatan-item" rows="2" placeholder="Contoh: tanpa kol"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="section-box">
+              <h4 style="color:#5c3d2e;">Menu Minuman</h4>
+
+              <div class="item-card">
+                <div class="form-check mb-2">
+                  <input class="form-check-input menu-check" type="checkbox" value="Teh Panas" id="minuman1" data-kategori="Minuman" data-harga="4000">
+                  <label class="form-check-label item-title" for="minuman1">Teh Hangat - Rp 4.000</label>
+                </div>
+                <div class="menu-detail d-none">
+                  <label class="form-label">Jumlah</label>
+                  <input type="number" class="form-control jumlah-item mb-2" min="1" value="1">
+                  <label class="form-label">Catatan Tambahan</label>
+                  <textarea class="form-control catatan-item" rows="2" placeholder="Contoh: sedikit gula"></textarea>
+                </div>
+              </div>
+
+              <div class="item-card">
+                <div class="form-check mb-2">
+                  <input class="form-check-input menu-check" type="checkbox" value="Es Teh" id="minuman2" data-kategori="Minuman" data-harga="5000">
+                  <label class="form-check-label item-title" for="minuman2">Es Teh - Rp 5.000</label>
+                </div>
+                <div class="menu-detail d-none">
+                  <label class="form-label">Jumlah</label>
+                  <input type="number" class="form-control jumlah-item mb-2" min="1" value="1">
+                  <label class="form-label">Catatan Tambahan</label>
+                  <textarea class="form-control catatan-item" rows="2" placeholder="Contoh: sedikit es"></textarea>
+                </div>
+              </div>
+
+              <div class="item-card">
+                <div class="form-check mb-2">
+                  <input class="form-check-input menu-check" type="checkbox" value="Jeruk Panas" id="minuman3" data-kategori="Minuman" data-harga="5000">
+                  <label class="form-check-label item-title" for="minuman3">Jeruk Panas - Rp 5.000</label>
+                </div>
+                <div class="menu-detail d-none">
+                  <label class="form-label">Jumlah</label>
+                  <input type="number" class="form-control jumlah-item mb-2" min="1" value="1">
+                  <label class="form-label">Catatan Tambahan</label>
+                  <textarea class="form-control catatan-item" rows="2" placeholder="Contoh: sedikit gula"></textarea>
+                </div>
+              </div>
+
+              <div class="item-card">
+                <div class="form-check mb-2">
+                  <input class="form-check-input menu-check" type="checkbox" value="Es Jeruk" id="minuman4" data-kategori="Minuman" data-harga="7000">
+                  <label class="form-check-label item-title" for="minuman4">Es Jeruk - Rp 7.000</label>
+                </div>
+                <div class="menu-detail d-none">
+                  <label class="form-label">Jumlah</label>
+                  <input type="number" class="form-control jumlah-item mb-2" min="1" value="1">
+                  <label class="form-label">Catatan Tambahan</label>
+                  <textarea class="form-control catatan-item" rows="2" placeholder="Contoh: sedikit es"></textarea>
+                </div>
+              </div>
+
+              <div class="item-card">
+                <div class="form-check mb-2">
+                  <input class="form-check-input menu-check" type="checkbox" value="Susu Hangat" id="minuman5" data-kategori="Minuman" data-harga="5000">
+                  <label class="form-check-label item-title" for="minuman5">Susu Hangat - Rp 5.000</label>
+                </div>
+                <div class="menu-detail d-none">
+                  <label class="form-label">Jumlah</label>
+                  <input type="number" class="form-control jumlah-item mb-2" min="1" value="1">
+                  <label class="form-label">Catatan Tambahan</label>
+                  <textarea class="form-control catatan-item" rows="2" placeholder="Contoh: sedikit gula"></textarea>
+                </div>
+              </div>
+
+              <div class="item-card">
+                <div class="form-check mb-2">
+                  <input class="form-check-input menu-check" type="checkbox" value="Es Susu" id="minuman6" data-kategori="Minuman" data-harga="6000">
+                  <label class="form-check-label item-title" for="minuman6">Es Susu - Rp 6.000</label>
+                </div>
+                <div class="menu-detail d-none">
+                  <label class="form-label">Jumlah</label>
+                  <input type="number" class="form-control jumlah-item mb-2" min="1" value="1">
+                  <label class="form-label">Catatan Tambahan</label>
+                  <textarea class="form-control catatan-item" rows="2" placeholder="Contoh: sedikit es"></textarea>
+                </div>
+              </div>
+
+              <div class="item-card">
+                <div class="form-check mb-2">
+                  <input class="form-check-input menu-check" type="checkbox" value="Air Es" id="minuman7" data-kategori="Minuman" data-harga="2500">
+                  <label class="form-check-label item-title" for="minuman7">Air Es - Rp 2.500</label>
+                </div>
+                <div class="menu-detail d-none">
+                  <label class="form-label">Jumlah</label>
+                  <input type="number" class="form-control jumlah-item mb-2" min="1" value="1">
+                  <label class="form-label">Catatan Tambahan</label>
+                  <textarea class="form-control catatan-item" rows="2" placeholder="Contoh: sedikit es"></textarea>
+                </div>
+              </div>
+
+              <div class="item-card">
+                <div class="form-check mb-2">
+                  <input class="form-check-input menu-check" type="checkbox" value="Air Mineral Botol" id="minuman8" data-kategori="Minuman" data-harga="3000">
+                  <label class="form-check-label item-title" for="minuman8">Air Mineral Botol - Rp 3.000</label>
+                </div>
+                <div class="menu-detail d-none">
+                  <label class="form-label">Jumlah</label>
+                  <input type="number" class="form-control jumlah-item mb-2" min="1" value="1">
+                  <label class="form-label">Catatan Tambahan</label>
+                  <textarea class="form-control catatan-item" rows="2" placeholder="Contoh: Botol besar / kecil"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label fw-bold">Jenis Pesanan</label>
+              <div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="jenisPesanan" id="dineIn" value="Dine In" required>
+                  <label class="form-check-label" for="dineIn">Dine In</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="jenisPesanan" id="takeAway" value="Take Away" required>
+                  <label class="form-check-label" for="takeAway">Take Away</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label fw-bold">Metode Pembayaran</label>
+              <div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="pembayaran" id="cash" value="Cash" required>
+                  <label class="form-check-label" for="cash">Cash</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="pembayaran" id="qris" value="QRIS" required>
+                  <label class="form-check-label" for="qris">QRIS</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Total Pesanan</label>
+              <input type="text" class="form-control" id="totalPesanan" value="Rp 0" readonly>
+            </div>
+
+            <button type="submit" class="btn btn-brown">Simpan Pesanan</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center py-3" style="background-color:#5c3d2e; color:white;">
+    <div class="container">
+      <p class="mb-0">© 2026 Bakmie Jawa Mas Panji. All rights reserved.</p>
+    </div>
+  </div>
+
+  <script src="assets/js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
